@@ -19,6 +19,7 @@ def start_enter_num():
         num = float(input('Enter the number: '))
     except ValueError:
         print('Услышал тебя, родной')
+        start_enter_num()
 
 
 def choose_op():
@@ -56,4 +57,7 @@ def executing_op(op):
    with more than one number"""
 start_enter_num()
 while True:
-    executing_op(choose_op())
+    try:
+        executing_op(choose_op())
+    except KeyboardInterrupt:
+        print('Executing was interrupted by user')
