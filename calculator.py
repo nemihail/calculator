@@ -1,0 +1,59 @@
+
+""" op = operation; exe = execute
+
+    python calculator
+    allows user to execute one of four basic
+    arithmetic ops with numbers.
+    number can have floating point and/or negative value
+
+    tg @shulepok
+"""
+
+operations = ['+', '-', '*', '/', '='] # list of available operatons
+num = 0.0 # main variable we will be forking with
+
+def start_enter_num():
+    """user enters that number at the beginning"""
+    try:
+        global num
+        num = float(input('Enter the number: '))
+    except ValueError:
+        print('Услышал тебя, родной')
+
+
+def choose_op():
+    """user can choose any one of four ops"""
+    input_command = input(f'Enter the operation {operations}: ')
+    if input_command in operations:
+        return input_command
+    else:
+        print('Allowed operations -', operations)
+        choose_op()
+
+
+def executing_op(op):
+    """and here user can exe operation that he want
+       to execute with two numbers"""
+    global num
+    if op == '=':
+        print(num)
+        return num
+    else:
+        yanum = float(input('Another num: '))
+        if op == '-':
+            num -= yanum
+        elif op == '*':
+            num *= yanum
+        elif op == '/':
+            num /= yanum
+        elif op == '+':
+            num += yanum
+        else:
+            print('🤔')
+        return num
+
+"""main while that allows user to exe many operations
+   with more than one number"""
+start_enter_num()
+while True:
+    executing_op(choose_op())
