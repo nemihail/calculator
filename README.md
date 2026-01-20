@@ -12,4 +12,7 @@
 2. Enter the operation
 3. repeat...
 
+## Coefficient version:
+Nothing difficult. Just 2.1 added to the calculations result
+
 tg: @shulepok
